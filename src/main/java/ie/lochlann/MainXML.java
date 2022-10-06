@@ -2,6 +2,8 @@ package ie.lochlann;
 
 import ie.lochlann.entities.Director;
 import ie.lochlann.entities.Movie;
+import ie.lochlann.repo.DirectorRepo;
+import ie.lochlann.repo.DirectorRepoImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Locale;
@@ -16,6 +18,11 @@ public class MainXML {
 
         context.getBeansOfType(Director.class).values().forEach(System.out::println);
         context.getBeansOfType(Movie.class).values().forEach(System.out::println);
+
+        DirectorRepo directorRepo = context.getBean(DirectorRepoImpl.class);
+        System.out.println(directorRepo.count());
+        directorRepo.getAll().forEach(System.out::println);
+
         context.close();
     }
 }

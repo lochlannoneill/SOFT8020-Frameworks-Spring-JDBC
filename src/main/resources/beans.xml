@@ -22,12 +22,14 @@
     </bean>
 
     <bean id="lochlann" class="ie.lochlann.entities.Director">
+        <constructor-arg value="1"></constructor-arg>
         <constructor-arg value="Lochlann"></constructor-arg>
         <constructor-arg value="O'Neill"></constructor-arg>
         <constructor-arg value="true"></constructor-arg>
     </bean>
 
     <bean id="lotr" class="ie.lochlann.entities.Movie">
+        <constructor-arg value="1"/>
         <constructor-arg value="The Lord of the Rings: The Fellowship of the Ring"/>
         <constructor-arg value="December 19, 2001"/>
         <constructor-arg value="897700000.0"/>
@@ -35,6 +37,7 @@
     </bean>
 
     <bean id="samurai" class="ie.lochlann.entities.Movie">
+        <constructor-arg value="2"/>
         <constructor-arg value="The Last Samurai"/>
         <constructor-arg value="January 9, 2004"/>
         <constructor-arg value="456800000.0"/>
@@ -42,6 +45,7 @@
     </bean>
 
     <bean id="panda" class="ie.lochlann.entities.Movie">
+        <constructor-arg value="3"/>
         <constructor-arg value="Kung Fu Panda"/>
         <constructor-arg value="July 4, 2004"/>
         <constructor-arg value="631700000.0"/>

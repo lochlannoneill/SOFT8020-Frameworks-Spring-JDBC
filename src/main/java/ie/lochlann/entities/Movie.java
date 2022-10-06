@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 //@Component
 
 public class Movie {
+    private int movieId;
     private String title;
     private String date_released;
     private double earnings;

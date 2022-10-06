@@ -46,22 +46,22 @@ public class Config {
 
     @Bean
     Director lochlann() {
-        return new Director("Lochlann", "O'Neill", true);
+        return new Director(1, "Lochlann", "O'Neill", true);
     }
 
     @Bean
     Movie lordOfTheRings() {
-        return new Movie("The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, lochlann());
+        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, lochlann());
     }
 
     @Bean
     Movie theLastSamurai() {
-        return new Movie("The Last Samurai", "January 9, 2004", 456800000.0, lochlann());
+        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, lochlann());
     }
 
     @Bean
     Movie kungFuPanda() {
-        return new Movie("Kung Fu Panda", "July 4, 2008", 631700000.0, lochlann());
+        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, lochlann());
     }
 
 }

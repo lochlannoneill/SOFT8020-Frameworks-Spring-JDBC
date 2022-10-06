@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 //@Component //automatically initialised bean???
 
 public class Director {
+    private int director_id;
     private String fname;
     private String lname;
     private boolean still_active;
