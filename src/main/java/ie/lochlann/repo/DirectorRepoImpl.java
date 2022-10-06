@@ -16,7 +16,8 @@ public class DirectorRepoImpl implements DirectorRepo {
     @Override
     public int count() {
         String sql = "select count(*) from director";
-        return jdbcTemplate.queryForObject(sql, Integer.class);
+        Integer number = jdbcTemplate.queryForObject(sql, Integer.class);
+        return number != null? number: -1; // if number is not null then return number, otherwise return -1
     }
 
     @Override
