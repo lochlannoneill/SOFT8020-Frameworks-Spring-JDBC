@@ -1,4 +1,4 @@
-package org.example;
+package ie.lochlann;
 
 public class Main {
     public static void main(String[] args) {
