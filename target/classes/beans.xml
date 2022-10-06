@@ -15,17 +15,20 @@
         <jdbc:script location="classpath:data.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>
+<!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>-->
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
 
     <bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">
         <constructor-arg value="-web,-webAllowOthers,-webPort,8082"/>
     </bean>
 
     <bean id="lochlann" class="ie.lochlann.entities.Director">
-        <constructor-arg value="1"></constructor-arg>
-        <constructor-arg value="Lochlann"></constructor-arg>
-        <constructor-arg value="O'Neill"></constructor-arg>
-        <constructor-arg value="true"></constructor-arg>
+        <constructor-arg value="1"/>
+        <constructor-arg value="Lochlann"/>
+        <constructor-arg value="O'Neill"/>
+        <constructor-arg value="true"/>
     </bean>
 
     <bean id="lotr" class="ie.lochlann.entities.Movie">
@@ -33,7 +36,7 @@
         <constructor-arg value="The Lord of the Rings: The Fellowship of the Ring"/>
         <constructor-arg value="December 19, 2001"/>
         <constructor-arg value="897700000.0"/>
-        <constructor-arg ref="lochlann"></constructor-arg>
+        <constructor-arg ref="lochlann"/>
     </bean>
 
     <bean id="samurai" class="ie.lochlann.entities.Movie">
@@ -41,7 +44,7 @@
         <constructor-arg value="The Last Samurai"/>
         <constructor-arg value="January 9, 2004"/>
         <constructor-arg value="456800000.0"/>
-        <constructor-arg ref="lochlann"></constructor-arg>
+        <constructor-arg ref="lochlann"/>
     </bean>
 
     <bean id="panda" class="ie.lochlann.entities.Movie">
@@ -49,7 +52,7 @@
         <constructor-arg value="Kung Fu Panda"/>
         <constructor-arg value="July 4, 2004"/>
         <constructor-arg value="631700000.0"/>
-        <constructor-arg ref="lochlann"></constructor-arg>
+        <constructor-arg ref="lochlann"/>
     </bean>
 
 </beans>

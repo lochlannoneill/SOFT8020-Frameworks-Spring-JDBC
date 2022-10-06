@@ -23,6 +23,8 @@ public class MainXML {
         System.out.println(directorRepo.count());
         directorRepo.getAll().forEach(System.out::println);
 
-        context.close();
+        System.out.println(directorRepo.findById(1));
+
+//        context.close(); //keep commented to see the webserver
     }
 }

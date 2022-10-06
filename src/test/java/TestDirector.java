@@ -31,5 +31,11 @@ public class TestDirector {
         Assertions.assertEquals("Cliona", testDirector.getFname());
     }
 
+    @Test
+    public void testDirectorBeanInsert() {
+        Director testDirector = context.getBean(Director.class);
+        Assertions.assertEquals("Test", testDirector.getFname());
+    }
+
 }
 

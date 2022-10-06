@@ -7,4 +7,5 @@ import java.util.List;
 public interface DirectorRepo {
     int count();
     List<Director> getAll();
+    Director findById(int id);
 }
