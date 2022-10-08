@@ -44,6 +44,7 @@ public class MainJavaBeans {
         // TODO - delete director given their ID
 
         // COMPLETED - find a movie by its ID showing all information and its director
+        // FIXME - find out how to use the Director Object instead of director_id
         System.out.println("----------------Find a movie by its ID showing all information and its director----------------");
         MovieService movieService = context.getBean(MovieServiceImpl.class);
         int movie_id = 3; //change to 123 to test invalid movie_id

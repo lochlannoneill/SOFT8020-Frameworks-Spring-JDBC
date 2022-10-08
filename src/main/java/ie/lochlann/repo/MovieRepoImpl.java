@@ -21,7 +21,7 @@ public class MovieRepoImpl implements MovieRepo {
     public int count() {
         String sql = "select count(*) from movie";
         Integer number = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Integer.class);
-        return number != null? number: -1; // if number is not null then return number, otherwise return -1 // TODO others
+        return number != null? number: -1;
     }
 
     @Override
