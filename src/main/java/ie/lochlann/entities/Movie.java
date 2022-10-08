@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 //@Component
 
 public class Movie {
-    private int movieId;
+    private int movie_id;
     private String title;
     private String date_released;
     private double earnings;
 //    private Director director;
-    private int directorId;
+    private int director_id;
 
     // is this 'constructor overloading'
     // so a school doesn't REQUIRE a faculty??

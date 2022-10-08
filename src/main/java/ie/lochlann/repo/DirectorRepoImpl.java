@@ -32,8 +32,24 @@ public class DirectorRepoImpl implements DirectorRepo {
 
     @Override
     public Director findById(int id) {
-        String sql = "select * from director where director_id = :directorId";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
+        String sql = "select * from director where director_id = :director_id";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("director_id", id);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new DirectorRowMapper());
     }
+
+    public boolean exists(int id) {
+        String sql = "select count(*) from director where director_id = :director_id";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("director_id", id);
+        Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
+        return number != null && number == 1;
+    }
+
+    public boolean existsByName(String fname) {
+        String sql = "select count(*) from director where fname = :fname";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("fname", fname);
+        Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
+        return number != null && number == 1;
+    }
+
+
 }

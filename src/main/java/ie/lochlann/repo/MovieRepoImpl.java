@@ -31,9 +31,23 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     @Override
-    public Movie findById(int id) {
-        String sql = "select * from movie where movie_id = :movieId";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", id);
+    public Movie findById(int movie_id) {
+        String sql = "select * from movie where movie_id = :movie_id";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movie_id", movie_id);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new MovieRowMapper());
+    }
+
+    public boolean exists(int movie_id) {
+        String sql = "select count(*) from movie where movie_id = :movie_id";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movie_id", movie_id);
+        Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
+        return number != null && number == 1;
+    }
+
+    public boolean existsByName(String title) {
+        String sql = "select count(*) from movie where title = :name"; // TODO sql name roughly like *x*
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("title", title);
+        Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
+        return number != null && number == 1;
     }
 }
