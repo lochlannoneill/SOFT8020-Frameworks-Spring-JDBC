@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb6210e-9eaf-40b3-9c3d-c46b360d4f83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/MainJavaBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/MainJavaBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/MainXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/MainXML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/beans.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestDirector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDirector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/beans.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/MainXML.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/MainXML.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/MainJavaBeans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/MainJavaBeans.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRowMapper.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,23 +47,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "5ae11f56f391219abb54861287f86196"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5ae11f56f391219abb54861287f86196&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lochl\OneDrive\Documents\GitHub\assignment_frameworks\src\main\java\ie\lochlann" />
@@ -142,7 +144,9 @@
       <option name="presentableId" value="Default" />
       <updated>1665071306335</updated>
       <workItem from="1665071307986" duration="5219000" />
-      <workItem from="1665078219596" duration="8361000" />
+      <workItem from="1665078219596" duration="9740000" />
+      <workItem from="1665143812706" duration="804000" />
+      <workItem from="1665246016630" duration="5047000" />
     </task>
     <servers />
   </component>

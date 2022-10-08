@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
@@ -27,9 +28,14 @@ public class Config {
                 .addScript("classpath:data.sql").build();
     }
 
+//    @Bean
+//    public JdbcTemplate jdbcTemplate(){
+//        return new JdbcTemplate(dataSource());
+//    }
+
     @Bean
-    public JdbcTemplate jdbcTemplate(){
-        return new JdbcTemplate(dataSource());
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
+        return new NamedParameterJdbcTemplate(dataSource());
     }
 
     @Bean(initMethod = "start") // uses the start() method of the bean to start the web server
@@ -51,17 +57,22 @@ public class Config {
 
     @Bean
     Movie lordOfTheRings() {
-        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, lochlann());
+//        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, lochlann());
+        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, 1);
     }
 
     @Bean
     Movie theLastSamurai() {
-        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, lochlann());
+
+//        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, lochlann());
+        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, 1);
     }
 
     @Bean
     Movie kungFuPanda() {
-        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, lochlann());
+
+//        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, lochlann());
+        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, 2);
     }
 
 }

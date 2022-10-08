@@ -16,7 +16,8 @@ public class Movie {
     private String title;
     private String date_released;
     private double earnings;
-    private Director director;
+//    private Director director;
+    private int directorId;
 
     // is this 'constructor overloading'
     // so a school doesn't REQUIRE a faculty??

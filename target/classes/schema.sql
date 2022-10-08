@@ -8,7 +8,7 @@ create table director (
 create table movie (
     movie_id int primary key,
     title varchar(64),
-    release_data varchar(32),
+    date_released varchar(32),
     earnings double,
-    director int --make this a foreign key
+    director_id int--make this a foreign key
 );
