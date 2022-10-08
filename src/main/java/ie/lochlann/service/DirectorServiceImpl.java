@@ -45,10 +45,16 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public boolean addDirector(Director director) {
-
-
-        return false;
+    public boolean addDirector(Director newDirector) {
+        if (directorRepo.existsByName(newDirector.getFname()) ) { // FIXME - maybe get rid of this
+//            log.error(MessageFormat.format("Could not add director. Duplicate Name: {0}", newDirector.getTitle()));
+            return false;
+        }
+        if (directorRepo.exists(newDirector.getDirectorId())) {
+//            log.error(MessageFormat.format("Could not add director. Duplicate Id: {0}", newDirector.getDirectorId()));
+            return false;
+        }
+        return directorRepo.createDirector(newDirector) == 1;
     }
 
     @Override

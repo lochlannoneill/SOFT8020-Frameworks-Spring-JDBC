@@ -12,7 +12,7 @@ public interface MovieService {
 //    List<Movie> findAllByDirectorId(int id);
     Optional<Movie> findAMovie(int id);
     boolean deleteMovie(int id);
-    boolean addMovie(int movieId, int directorId);
+    boolean addMovie(Movie newMovie);
     boolean changeMovieEarnings(int id, double earnings);
 
 }

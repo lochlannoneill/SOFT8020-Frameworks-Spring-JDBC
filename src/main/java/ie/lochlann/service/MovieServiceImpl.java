@@ -5,6 +5,7 @@ import ie.lochlann.repo.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,8 +43,16 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public boolean addMovie(int movieId, int directorId) {
-        return false;
+    public boolean addMovie(Movie newMovie) {
+        if (movieRepo.existsByName(newMovie.getTitle()) ) {
+//            log.error(MessageFormat.format("Could not add movie. Duplicate Name: {0}", newMovie.getTitle()));
+            return false;
+        }
+        if (movieRepo.exists(newMovie.getMovieId())) {
+//            log.error(MessageFormat.format("Could not add movie. Duplicate Id: {0}", newMovie.getMovieId()));
+            return false;
+        }
+        return movieRepo.createMovie(newMovie) == 1;
     }
 
     @Override

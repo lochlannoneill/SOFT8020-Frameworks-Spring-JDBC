@@ -65,8 +65,7 @@ public class DirectorRepoImpl implements DirectorRepo {
                 .addValue("directorId", newDirector.getDirectorId())
                 .addValue("fname", newDirector.getFname())
                 .addValue("lname", newDirector.getLname())
-//                .addValue("year", newDirector.getStillActive()) // FIXME - why lombok didnt create this???
-                .addValue("stillActive", true); //
+                .addValue("stillActive", newDirector.isStillActive());
         return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
     }
 
