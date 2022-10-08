@@ -6,10 +6,13 @@ import ie.lochlann.repo.DirectorRepo;
 import ie.lochlann.repo.DirectorRepoImpl;
 import ie.lochlann.repo.MovieRepo;
 import ie.lochlann.repo.MovieRepoImpl;
+import ie.lochlann.service.DirectorService;
+import ie.lochlann.service.DirectorServiceImpl;
 import ie.lochlann.service.MovieService;
 import ie.lochlann.service.MovieServiceImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.text.MessageFormat;
 import java.util.Locale;
 
 public class MainJavaBeans {
@@ -22,7 +25,10 @@ public class MainJavaBeans {
         final String ANSI_TEXT_PURPLE = "\u001b[35m";
         final String ANSI_TEXT_CYAN = "\u001b[36m";
         final String ANSI_BACKGROUND_BLACK = "\uu001b[40m";
+
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        DirectorService directorService = context.getBean(DirectorServiceImpl.class);
+        MovieService movieService = context.getBean(MovieServiceImpl.class);
 //        System.out.println(context.getMessage("greeting", null, Locale.getDefault()));
 //        System.out.println(context.getMessage("greeting", null, Locale.FRENCH));
 //        System.out.println(context.getMessage("greeting", null, Locale.ITALIAN));
@@ -31,29 +37,37 @@ public class MainJavaBeans {
 //        context.getBeansOfType(Movie.class).values().forEach(System.out::println);
 
         // COMPLETED - List all directors
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "----------------List all directors----------------" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_BLUE + "----------------List all directors----------------" + ANSI_TEXT_RESET);
         DirectorRepo directorRepo = context.getBean(DirectorRepoImpl.class);
         System.out.println("H2 Database Director Count: " + directorRepo.count());
         directorRepo.getAll().forEach(System.out::println);
 
         // COMPLETED - List all movies(director not needed)
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "----------------List all movies(director not needed)----------------" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_BLUE + "----------------List all movies(director not needed)----------------" + ANSI_TEXT_RESET);
         MovieRepo movieRepo = context.getBean(MovieRepoImpl.class);
         System.out.println("H2 Database Movie Count: " + movieRepo.count());
         movieRepo.getAll().forEach(System.out::println);
 
         // TODO - add a director
-//        System.out.println("");
-//        System.out.println("----------------Add a director----------------");
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "----------------Add a director----------------" + ANSI_TEXT_RESET);
+        int newDirectorId = 99;
+        directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + newDirectorId));
+        System.out.println("Creating new director...");
+        directorService.addDirector(new Director(newDirectorId, "test", "test", false));
+        directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + newDirectorId));
 
         // TODO - add a movie assigning it to a specific director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "----------------Add a movie assigning it to a specific director----------------" + ANSI_TEXT_RESET);
+
         // TODO - delete a movie given its ID
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "----------------Delete a movie given its ID----------------" + ANSI_TEXT_RESET);
+
         // TODO - delete director given their ID
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "----------------Delete director given their ID----------------" + ANSI_TEXT_RESET);
 
         // COMPLETED - find a movie by its ID showing all information and its director
         // FIXME - find out how to use the Director Object instead of directorId
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "----------------Find a movie by its ID showing all information and its director----------------" + ANSI_TEXT_RESET);
-        MovieService movieService = context.getBean(MovieServiceImpl.class);
         int movieId = 3; //change to 123 to test invalid id
         System.out.println("Find Movie Id: " + movieId);
         movieService.findAMovie(movieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + movieId));
