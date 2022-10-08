@@ -9,4 +9,7 @@ public interface DirectorService {
     int count();
     List<Director> findAll();
     Optional<Director> findADirector(int id);
+    boolean deleteDirector(int id);
+    boolean addDirector(Director director);
+    boolean changeDirectorActive(int id, boolean active);
 }

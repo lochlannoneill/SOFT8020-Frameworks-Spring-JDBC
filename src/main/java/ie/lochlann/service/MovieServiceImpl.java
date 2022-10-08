@@ -23,11 +23,31 @@ public class MovieServiceImpl implements MovieService {
         return movieRepo.getAll();
     }
 
+//    @Override
+//    public List<Movie> findAllByDirectorId(int id) {
+//        return movieRepo.getAllByDirectorId(id);
+//    }
+
     @Override
     public Optional<Movie> findAMovie(int id) {
         if (movieRepo.exists(id)) {
             return Optional.of(movieRepo.findById(id));
         }
         return Optional.empty();
+    }
+
+    @Override
+    public boolean deleteMovie(int id) {
+        return false;
+    }
+
+    @Override
+    public boolean addMovie(int movieId, int directorId) {
+        return false;
+    }
+
+    @Override
+    public boolean changeMovieEarnings(int id, double earnings) {
+        return false;
     }
 }

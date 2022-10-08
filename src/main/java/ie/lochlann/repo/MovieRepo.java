@@ -7,9 +7,10 @@ import java.util.List;
 public interface MovieRepo {
     int count();
     List<Movie> getAll();
+//    List<Movie> getAllByDirectorId(int id);
     Movie findById(int id);
     boolean exists(int id);
     boolean existsByName(String title);
-//    int deleteDirector(int id);
-//    int createDirector(Director newDirector);
+    int deleteMovie(int id);
+    int createMovie(Movie newMovie);
 }

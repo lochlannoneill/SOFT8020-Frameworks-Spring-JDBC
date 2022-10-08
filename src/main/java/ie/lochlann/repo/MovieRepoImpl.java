@@ -30,24 +30,43 @@ public class MovieRepoImpl implements MovieRepo {
         return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new MovieRowMapper());
     }
 
+//    @Override
+//    public List<Movie> getAllByDirectorId(int id) {
+//        String sql = "select * from movie where directorId = :directorId";
+//        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
+//        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, sqlParameterSource, new MovieRowMapper());
+//    }
+
     @Override
-    public Movie findById(int movie_id) {
-        String sql = "select * from movie where movie_id = :movie_id";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movie_id", movie_id);
+    public Movie findById(int id) {
+        String sql = "select * from movie where movieId = :movieId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", id);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new MovieRowMapper());
     }
 
-    public boolean exists(int movie_id) {
-        String sql = "select count(*) from movie where movie_id = :movie_id";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movie_id", movie_id);
+    public boolean exists(int id) {
+        String sql = "select count(*) from movie where movieId = :movieId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", id);
         Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
         return number != null && number == 1;
     }
 
     public boolean existsByName(String title) {
-        String sql = "select count(*) from movie where title = :name"; // TODO sql name roughly like *x*
+        String sql = "select count(*) from movie where title = :title"; // TODO sql name roughly like *x*
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("title", title);
         Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
         return number != null && number == 1;
+    }
+
+    @Override
+    public int deleteMovie(int id) {
+        String sql = "delete from movie where movieId = :movieId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", id);
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+    }
+
+    @Override
+    public int createMovie(Movie newMovie) {
+        return 0;
     }
 }

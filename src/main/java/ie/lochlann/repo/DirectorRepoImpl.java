@@ -32,23 +32,47 @@ public class DirectorRepoImpl implements DirectorRepo {
 
     @Override
     public Director findById(int id) {
-        String sql = "select * from director where director_id = :director_id";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("director_id", id);
+        String sql = "select * from director where directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new DirectorRowMapper());
     }
 
     public boolean exists(int id) {
-        String sql = "select count(*) from director where director_id = :director_id";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("director_id", id);
+        String sql = "select count(*) from director where directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
         Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
         return number != null && number == 1;
     }
 
-    public boolean existsByName(String fname) {
+    public boolean existsByName(String name) {
         String sql = "select count(*) from director where fname = :fname";
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("fname", fname);
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("fname", name);
         Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
         return number != null && number == 1;
+    }
+
+    @Override
+    public int deleteDirector(int id) {
+        String sql = "delete from studio where directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+    }
+
+    @Override
+    public int createDirector(Director newDirector) {
+        String sql = "insert into director values (:directorId, :fname, :lname, :stillActive)";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("directorId", newDirector.getDirectorId())
+                .addValue("fname", newDirector.getFname())
+                .addValue("lname", newDirector.getLname())
+//                .addValue("year", newDirector.getStillActive()) // FIXME - why lombok didnt create this???
+                .addValue("stillActive", true); //
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+    }
+
+    @Override
+    public int changeDirectorActive(boolean active) {
+        return 0;
     }
 
 

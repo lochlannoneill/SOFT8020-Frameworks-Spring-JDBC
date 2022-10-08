@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 //@Component
 
 public class Movie {
-    private int movie_id;
+    private int movieId;
     private String title;
     private String date_released;
     private double earnings;
 //    private Director director;
-    private int director_id;
+    private int directorId;
 
 //  constructor overloading so a Movie doesn't REQUIRE a director
     public Movie(int mid, String t, String dr, double e) {
-        this.movie_id = mid;
+        this.movieId = mid;
         this.title = t;
         this.date_released = dr;
         this.earnings = e;

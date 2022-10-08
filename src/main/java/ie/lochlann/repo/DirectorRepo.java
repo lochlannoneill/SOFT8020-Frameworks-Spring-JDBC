@@ -10,6 +10,8 @@ public interface DirectorRepo {
     Director findById(int id);
     boolean exists(int id);
     boolean existsByName(String name);
-//    int deleteDirector(int id);
-//    int createDirector(Director newDirector);
+
+    int deleteDirector(int id);
+    int createDirector(Director newDirector);
+    int changeDirectorActive(boolean active);
 }

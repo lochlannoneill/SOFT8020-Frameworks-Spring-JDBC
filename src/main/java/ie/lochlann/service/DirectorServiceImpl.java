@@ -34,5 +34,24 @@ public class DirectorServiceImpl implements DirectorService {
         return Optional.empty();
     }
 
+    @Override
+    public boolean deleteDirector(int id) {
+        if (directorRepo.exists(id)) {
+            return directorRepo.deleteDirector(id)==1;
+        }
+//        log.error("Error - Id {0} does not exist. No director was deleted", id); // FIXME - why is .warn not working?? i have @Slf4j
+        return false;
+    }
+
+    @Override
+    public boolean addDirector(Director director) {
+        return false;
+    }
+
+    @Override
+    public boolean changeDirectorActive(int id, boolean active) {
+        return false;
+    }
+
 
 }
