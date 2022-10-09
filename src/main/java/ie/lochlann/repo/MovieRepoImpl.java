@@ -90,8 +90,15 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     @Override
-    public int createMovie(int movieId, String title, String releaseDate, double earnings, int directorId) {
-        return 0;
+    public int addMovie(Movie movie) {
+        String sql = "insert into movie values (:movieId, :title, :releaseDate, :earnings, :directorId)";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("movieId", movie.getMovieId())
+                .addValue("title", movie.getTitle())
+                .addValue("releaseDate", movie.getReleaseDate())
+                .addValue("earnings", movie.getEarnings())
+                .addValue("directorId", movie.getDirectorId());
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
     }
 
     @Override

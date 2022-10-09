@@ -1,6 +1,7 @@
 package ie.lochlann;
 
 import ie.lochlann.entities.Director;
+import ie.lochlann.entities.Movie;
 import ie.lochlann.repo.DirectorRepo;
 import ie.lochlann.repo.DirectorRepoImpl;
 import ie.lochlann.repo.MovieRepo;
@@ -52,7 +53,13 @@ public class Main {
         directorService.addDirector(new Director(newDirectorId, "test", "test", false));
         directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + newDirectorId + "'"));
 
-        // TODO - Add a movie assigning it to a specific director
+        // COMPLETED - Add a movie assigning it to a specific director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "Add a movie assigning it to a specific director" + ANSI_TEXT_RESET);
+        int newMovieId = 99;
+        movieService.findAMovie(newMovieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + newMovieId + "'"));
+        System.out.println("Creating new movie with id '" + newMovieId + "', assigned to director with id '" + newDirectorId + "'");
+        movieService.addMovie(new Movie(newMovieId, "Test: The Movie", "October 9, 2022", newDirectorId));
+        movieService.findAMovie(newMovieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + newMovieId + "'"));
 
         // COMPLETED - Delete a movie given its ID
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a movie given its ID" + ANSI_TEXT_RESET);

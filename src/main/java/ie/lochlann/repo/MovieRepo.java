@@ -15,7 +15,7 @@ public interface MovieRepo {
     boolean exists(int id);
     boolean existsByName(String title);
     int deleteMovie(int id);
-    int createMovie(int movieId, String title, String releaseDate, double earnings, int directorId);
+    int addMovie(Movie movie);
     int changeMovieEarnings(int id, double newEarnings);
     int changeDirector(int movieId, int newDirectorId);
 }

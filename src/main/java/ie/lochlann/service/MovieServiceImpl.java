@@ -59,8 +59,16 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public boolean addMovie(int movieId, String title, String releaseDate, double earnings, int director_id) {
-        return false;
+    public boolean addMovie(Movie movie) {
+        if (movieRepo.existsByName(movie.getTitle()) ) { // FIXME - maybe get rid of this
+//            log.error(MessageFormat.format("Could not add director. Duplicate Name: {0}", newDirector.getTitle())); //FIXME
+            return false;
+        }
+        if (movieRepo.exists(movie.getMovieId()) ) {
+//            log.error(MessageFormat.format("Could not add director. Duplicate Id: {0}", newDirector.getDirectorId())); //FIXME
+            return false;
+        }
+        return movieRepo.addMovie(movie) == 1;
     }
 
     @Override

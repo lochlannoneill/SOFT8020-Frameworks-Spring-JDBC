@@ -15,7 +15,7 @@ public interface MovieService {
     List<Movie> findMoviesByDirector(int id);
     Result findMovieTitleAndDirectorName(int movieId);
     boolean deleteMovie(int id);
-    boolean addMovie(int movieId, String title, String releaseDate, double earnings, int director_id);  // TODO
+    boolean addMovie(Movie movie);
     boolean changeMovieEarnings(int id, double newEarnings);
     boolean changeDirector(int movieId, int newDirectorId); // TODO
 
