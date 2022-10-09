@@ -69,4 +69,13 @@ public class MovieRepoImpl implements MovieRepo {
     public int createMovie(Movie newMovie) {
         return 0;
     }
+
+    @Override
+    public int changeMovieEarnings(int id, double newEarnings) {
+        String sql = "update movie set earnings = :newEarnings where movieId = :movieId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("movieId", id)
+                .addValue("newEarnings", newEarnings);
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+    }
 }

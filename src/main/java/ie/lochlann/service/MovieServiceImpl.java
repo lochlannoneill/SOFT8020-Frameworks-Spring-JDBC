@@ -39,24 +39,32 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public boolean deleteMovie(int id) {
+        if (movieRepo.exists(id)) {
+            return movieRepo.deleteMovie(id)==1;
+        }
+//        log.error(MessageFormat.format("Error - Id {0} does not exist. No director was deleted", id)); // FIXME - why is .warn not working?? i have @Slf4j
         return false;
     }
 
     @Override
     public boolean addMovie(Movie newMovie) {
         if (movieRepo.existsByName(newMovie.getTitle()) ) {
-//            log.error(MessageFormat.format("Could not add movie. Duplicate Name: {0}", newMovie.getTitle()));
+//            log.error(MessageFormat.format("Could not add movie. Duplicate Name: {0}", newMovie.getTitle())); //FIXME
             return false;
         }
         if (movieRepo.exists(newMovie.getMovieId())) {
-//            log.error(MessageFormat.format("Could not add movie. Duplicate Id: {0}", newMovie.getMovieId()));
+//            log.error(MessageFormat.format("Could not add movie. Duplicate Id: {0}", newMovie.getMovieId())); //FIXME
             return false;
         }
         return movieRepo.createMovie(newMovie) == 1;
     }
 
     @Override
-    public boolean changeMovieEarnings(int id, double earnings) {
-        return false;
+    public boolean changeMovieEarnings(int id, double newEarnings) {
+        if (! movieRepo.exists(id)) {
+//            log.error(MessageFormat.format("Cannot change movie earnings. Movie Id {0} does not exist", id)); //FIXME
+            return false;
+        }
+        return movieRepo.changeMovieEarnings(id, newEarnings) == 1;
     }
 }

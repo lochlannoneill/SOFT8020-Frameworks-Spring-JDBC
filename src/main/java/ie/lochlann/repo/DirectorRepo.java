@@ -13,5 +13,5 @@ public interface DirectorRepo {
 
     int deleteDirector(int id);
     int createDirector(Director newDirector);
-    int changeDirectorActive(boolean active);
+    int changeDirectorActive(int id, boolean newActive);
 }

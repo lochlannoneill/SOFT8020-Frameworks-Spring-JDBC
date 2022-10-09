@@ -11,5 +11,5 @@ public interface DirectorService {
     Optional<Director> findADirector(int id);
     boolean deleteDirector(int id);
     boolean addDirector(Director director);
-    boolean changeDirectorActive(int id, boolean active);
+    boolean changeDirectorActive(int id, boolean newActive);
 }

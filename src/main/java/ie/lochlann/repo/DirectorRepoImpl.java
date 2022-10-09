@@ -70,8 +70,12 @@ public class DirectorRepoImpl implements DirectorRepo {
     }
 
     @Override
-    public int changeDirectorActive(boolean active) {
-        return 0;
+    public int changeDirectorActive(int id, boolean newActive) {
+        String sql = "update director set stillActive = :newActive where directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+                .addValue("directorId", id)
+                .addValue("newActive", newActive);
+        return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
     }
 
 
