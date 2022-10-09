@@ -59,14 +59,21 @@ public class MainJavaBeans {
         // TODO - Add a movie assigning it to a specific director
 
         // COMPLETED - Delete a movie given its ID
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "Delete a movie given its ID" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a movie given its ID" + ANSI_TEXT_RESET);
         int deleteMovieID = 5;
         movieService.findAMovie(deleteMovieID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteMovieID));
         System.out.println("Deleting movie...");
         movieService.deleteMovie(deleteMovieID);
         movieService.findAMovie(deleteMovieID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteMovieID));
 
-        // TODO - Delete director given their ID
+        // COMPLETED - Delete director given their ID
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a movie given its ID" + ANSI_TEXT_RESET);
+        int deleteDirectorID = 3;
+        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteDirectorID));
+        System.out.println("Deleting movie...");
+        directorService.deleteDirector(deleteDirectorID);
+        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteDirectorID));
+
 
         // COMPLETED - find a movie by its ID showing all information and its director
         // FIXME - Find out how to use the Director Object instead of directorId

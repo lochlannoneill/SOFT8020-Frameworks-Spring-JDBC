@@ -53,7 +53,7 @@ public class DirectorRepoImpl implements DirectorRepo {
 
     @Override
     public int deleteDirector(int id) {
-        String sql = "delete from studio where directorId = :directorId";
+        String sql = "delete from director where directorId = :directorId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
         return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
     }
