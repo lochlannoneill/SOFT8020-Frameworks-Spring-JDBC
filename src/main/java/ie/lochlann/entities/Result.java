@@ -5,4 +5,4 @@ package ie.lochlann.entities;
 // Carries data in one direction only
 // Built-in functions eg. getters, hashcode etc.
 // Only use this to populate data for retrieval
-public record Result(String directorFname, String directorLname, String movieTitle) {};
+public record Result(String directorName, String movieTitle) {};

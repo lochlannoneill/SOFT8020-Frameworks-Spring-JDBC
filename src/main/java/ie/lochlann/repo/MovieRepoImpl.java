@@ -34,7 +34,7 @@ public class MovieRepoImpl implements MovieRepo {
 
     @Override
     public List<Result> findAll() {
-        String sql = "select d.fname, d.lname, m.title from movie m inner join director d on d.directorId = m.directorId";
+        String sql = "select concat(d.fname, ' ' , d.lname) as name, m.title from movie m inner join director d on d.directorId = m.directorId";
         return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new ResultRowMapper());
     }
 

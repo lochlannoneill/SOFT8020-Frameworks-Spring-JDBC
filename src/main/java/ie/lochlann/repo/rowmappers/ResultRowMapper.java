@@ -9,6 +9,6 @@ import java.sql.SQLException;
 public class ResultRowMapper implements RowMapper<Result> {
     @Override
     public Result mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return new Result(rs.getString("director.fname"),rs.getString("director.lname"), rs.getString("movie.title"));
+        return new Result(rs.getString("name"), rs.getString("movie.title"));
     }
 }
