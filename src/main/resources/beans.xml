@@ -1,58 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xsi:schemaLocation=
-               "http://www.springframework.org/schema/beans
-                  https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
-    <!-- bean definitions and configurations go here -->
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xmlns:jdbc="http://www.springframework.org/schema/jdbc"-->
+<!--       xsi:schemaLocation=-->
+<!--               "http://www.springframework.org/schema/beans-->
+<!--                  https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">-->
+<!--    &lt;!&ndash; bean definitions and configurations go here &ndash;&gt;-->
 
-    <context:component-scan base-package="ie.lochlann"/>
+<!--    <context:component-scan base-package="ie.lochlann"/>-->
 
-    <jdbc:embedded-database id="dataSource" type="H2">
-        <jdbc:script location="classpath:schema.sql"/>
-        <jdbc:script location="classpath:data.sql"/>
-    </jdbc:embedded-database>
+<!--    <jdbc:embedded-database id="dataSource" type="H2">-->
+<!--        <jdbc:script location="classpath:schema.sql"/>-->
+<!--        <jdbc:script location="classpath:data.sql"/>-->
+<!--    </jdbc:embedded-database>-->
 
-<!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>-->
-    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
-        <constructor-arg ref="dataSource"/>
-    </bean>
+<!--&lt;!&ndash;    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"/>&ndash;&gt;-->
+<!--    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">-->
+<!--        <constructor-arg ref="dataSource"/>-->
+<!--    </bean>-->
 
-    <bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">
-        <constructor-arg value="-web,-webAllowOthers,-webPort,8082"/>
-    </bean>
+<!--    <bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">-->
+<!--        <constructor-arg value="-web,-webAllowOthers,-webPort,8082"/>-->
+<!--    </bean>-->
 
-    <bean id="lochlann" class="ie.lochlann.entities.Director">
-        <constructor-arg value="1"/>
-        <constructor-arg value="Lochlann"/>
-        <constructor-arg value="O'Neill"/>
-        <constructor-arg value="true"/>
-    </bean>
+<!--    <bean id="lochlann" class="ie.lochlann.entities.Director">-->
+<!--        <constructor-arg value="1"/>-->
+<!--        <constructor-arg value="Lochlann"/>-->
+<!--        <constructor-arg value="O'Neill"/>-->
+<!--        <constructor-arg value="true"/>-->
+<!--    </bean>-->
 
-    <bean id="lotr" class="ie.lochlann.entities.Movie">
-        <constructor-arg value="1"/>
-        <constructor-arg value="The Lord of the Rings: The Fellowship of the Ring"/>
-        <constructor-arg value="December 19, 2001"/>
-        <constructor-arg value="897700000.0"/>
-        <constructor-arg ref="lochlann"/>
-    </bean>
+<!--    <bean id="lotr" class="ie.lochlann.entities.Movie">-->
+<!--        <constructor-arg value="1"/>-->
+<!--        <constructor-arg value="The Lord of the Rings: The Fellowship of the Ring"/>-->
+<!--        <constructor-arg value="December 19, 2001"/>-->
+<!--        <constructor-arg value="897700000.0"/>-->
+<!--        <constructor-arg ref="lochlann"/>-->
+<!--    </bean>-->
 
-    <bean id="samurai" class="ie.lochlann.entities.Movie">
-        <constructor-arg value="2"/>
-        <constructor-arg value="The Last Samurai"/>
-        <constructor-arg value="January 9, 2004"/>
-        <constructor-arg value="456800000.0"/>
-        <constructor-arg ref="lochlann"/>
-    </bean>
+<!--    <bean id="samurai" class="ie.lochlann.entities.Movie">-->
+<!--        <constructor-arg value="2"/>-->
+<!--        <constructor-arg value="The Last Samurai"/>-->
+<!--        <constructor-arg value="January 9, 2004"/>-->
+<!--        <constructor-arg value="456800000.0"/>-->
+<!--        <constructor-arg ref="lochlann"/>-->
+<!--    </bean>-->
 
-    <bean id="panda" class="ie.lochlann.entities.Movie">
-        <constructor-arg value="3"/>
-        <constructor-arg value="Kung Fu Panda"/>
-        <constructor-arg value="July 4, 2004"/>
-        <constructor-arg value="631700000.0"/>
-        <constructor-arg ref="lochlann"/>
-    </bean>
+<!--    <bean id="panda" class="ie.lochlann.entities.Movie">-->
+<!--        <constructor-arg value="3"/>-->
+<!--        <constructor-arg value="Kung Fu Panda"/>-->
+<!--        <constructor-arg value="July 4, 2004"/>-->
+<!--        <constructor-arg value="631700000.0"/>-->
+<!--        <constructor-arg ref="lochlann"/>-->
+<!--    </bean>-->
 
-</beans>
+<!--</beans>-->

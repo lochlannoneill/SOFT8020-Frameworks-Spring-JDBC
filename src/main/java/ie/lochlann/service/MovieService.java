@@ -10,13 +10,11 @@ import java.util.Optional;
 public interface MovieService {
     int count();
     List<Movie> findAll();
-//    List<Result> findAll();
-//    List<Movie> findAllByDirectorId(int id);
     Optional<Movie> findAMovie(int id);
     List<Movie> findMoviesByDirector(int id);
     boolean deleteMovie(int id);
-    boolean addMovie(int movieId, String title, String releaseDate, double earnings, int director_id);
+    boolean addMovie(int movieId, String title, String releaseDate, double earnings, int director_id);  // TODO
     boolean changeMovieEarnings(int id, double newEarnings);
-    boolean changeDirector(int movieId, int newDirectorId);
+    boolean changeDirector(int movieId, int newDirectorId); // TODO
 
 }

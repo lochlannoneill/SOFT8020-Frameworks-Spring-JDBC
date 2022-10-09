@@ -1,7 +1,6 @@
 package ie.lochlann;
 
 import ie.lochlann.entities.Director;
-import ie.lochlann.entities.Movie;
 import ie.lochlann.repo.DirectorRepo;
 import ie.lochlann.repo.DirectorRepoImpl;
 import ie.lochlann.repo.MovieRepo;
@@ -12,10 +11,7 @@ import ie.lochlann.service.MovieService;
 import ie.lochlann.service.MovieServiceImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.text.MessageFormat;
-import java.util.Locale;
-
-public class MainJavaBeans {
+public class Main {
     public static void main(String[] args) {
         final String ANSI_TEXT_RESET = "\u001b[0m";
         final String ANSI_TEXT_RED = "\u001b[31m";
@@ -52,7 +48,7 @@ public class MainJavaBeans {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Add a director" + ANSI_TEXT_RESET);
         int newDirectorId = 99;
         directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + newDirectorId + "'"));
-        System.out.println("Creating new director...");
+        System.out.println("Creating new director with id '" + newDirectorId + "'...");
         directorService.addDirector(new Director(newDirectorId, "test", "test", false));
         directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + newDirectorId + "'"));
 
@@ -62,7 +58,7 @@ public class MainJavaBeans {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a movie given its ID" + ANSI_TEXT_RESET);
         int deleteMovieID = 5;
         movieService.findAMovie(deleteMovieID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + deleteMovieID +"'"));
-        System.out.println("Deleting movie...");
+        System.out.println("Deleting movie with id '" + deleteMovieID + "'...");
         movieService.deleteMovie(deleteMovieID);
         movieService.findAMovie(deleteMovieID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + deleteMovieID + "'"));
 
@@ -70,7 +66,7 @@ public class MainJavaBeans {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a director given its ID" + ANSI_TEXT_RESET);
         int deleteDirectorID = 3;
         directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + deleteDirectorID + "'"));
-        System.out.println("Deleting director...");
+        System.out.println("Deleting director with id '" + deleteDirectorID + "'...");
         directorService.deleteDirector(deleteDirectorID);
         directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + deleteDirectorID + "'"));
 
@@ -91,7 +87,7 @@ public class MainJavaBeans {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN+ "Change a director's active status given their ID" + ANSI_TEXT_RESET);
         int changeActiveid = 1;
         directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + changeActiveid + "'"));
-        System.out.println("Changing director active status...");
+        System.out.println("Changing director Id '" + changeActiveid + "' activity status to 'false'");
         directorService.changeDirectorActive(changeActiveid, false);
         directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + changeActiveid + "'"));
 
@@ -100,7 +96,7 @@ public class MainJavaBeans {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Modify a movie's earnings given its ID" + ANSI_TEXT_RESET);
         int changeEarningsid = 3;
         movieService.findAMovie(changeEarningsid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + changeEarningsid + "'"));
-        System.out.println("Changing movie earnings...");
+        System.out.println("Changing movie id '" + changeEarningsid + "' earnings to '999'");
         movieService.changeMovieEarnings(changeEarningsid, 999);
         movieService.findAMovie(changeEarningsid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + changeEarningsid + "'"));
 

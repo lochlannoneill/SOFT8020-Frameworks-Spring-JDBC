@@ -31,7 +31,6 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     @Override
-    // TODO
     public List<Movie> findMoviesByDirector(int id) {
         String sql = "select * from movie where directorId = :directorId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
@@ -67,7 +66,6 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     @Override
-    // TODO
     public int createMovie(int movieId, String title, String releaseDate, double earnings, int directorId) {
         return 0;
     }
@@ -82,7 +80,6 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     @Override
-    // TODO
     public int changeDirector(int movieId, int newDirectorId) {
         String sql = "update movie set directorId = :newDirectorID where movieId = :movieId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()

@@ -1,7 +1,5 @@
 package ie.lochlann;
 
-import ie.lochlann.entities.Director;
-import ie.lochlann.entities.Movie;
 import org.h2.tools.Server;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -48,31 +46,6 @@ public class Config {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         return messageSource;
-    }
-
-    @Bean
-    Director lochlann() {
-        return new Director(1, "Lochlann", "O'Neill", true);
-    }
-
-    @Bean
-    Movie lordOfTheRings() {
-//        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, lochlann());
-        return new Movie(1, "The Lord of the Rings: The Fellowship of the Ring", "December 19, 2001", 897700000.0, 1);
-    }
-
-    @Bean
-    Movie theLastSamurai() {
-
-//        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, lochlann());
-        return new Movie(2, "The Last Samurai", "January 9, 2004", 456800000.0, 1);
-    }
-
-    @Bean
-    Movie kungFuPanda() {
-
-//        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, lochlann());
-        return new Movie(3, "Kung Fu Panda", "July 4, 2008", 631700000.0, 2);
     }
 
 }
