@@ -1,8 +1,10 @@
 
+import ie.lochlann.Config;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -14,7 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ContextConfiguration(locations = {"classpath:/beans.xml"})
 public class TestLanguage {
     @Autowired
-    ApplicationContext context;
+//    ApplicationContext context;
+    AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
     @Test
     public void testFrenchSuccess() {

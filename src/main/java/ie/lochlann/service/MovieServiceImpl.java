@@ -5,6 +5,7 @@ import ie.lochlann.repo.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.transform.Result;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
@@ -21,13 +22,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> findAll() {
-        return movieRepo.getAll();
+        return movieRepo.findAll();
     }
-
-//    @Override
-//    public List<Movie> findAllByDirectorId(int id) {
-//        return movieRepo.getAllByDirectorId(id);
-//    }
 
     @Override
     public Optional<Movie> findAMovie(int id) {
@@ -35,6 +31,11 @@ public class MovieServiceImpl implements MovieService {
             return Optional.of(movieRepo.findById(id));
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Movie> findMoviesByDirector(int id) {
+        return movieRepo.findMoviesByDirector(id);
     }
 
     @Override
@@ -47,17 +48,23 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public boolean addMovie(Movie newMovie) {
-        if (movieRepo.existsByName(newMovie.getTitle()) ) {
-//            log.error(MessageFormat.format("Could not add movie. Duplicate Name: {0}", newMovie.getTitle())); //FIXME
-            return false;
-        }
-        if (movieRepo.exists(newMovie.getMovieId())) {
-//            log.error(MessageFormat.format("Could not add movie. Duplicate Id: {0}", newMovie.getMovieId())); //FIXME
-            return false;
-        }
-        return movieRepo.createMovie(newMovie) == 1;
+    // TODO
+    public boolean addMovie(int movieId, String title, String releaseDate, double earnings, int director_id) {
+        return false;
     }
+
+//    @Override
+//    public boolean addMovie(Movie newMovie) {
+//        if (movieRepo.existsByName(newMovie.getTitle()) ) {
+////            log.error(MessageFormat.format("Could not add movie. Duplicate Name: {0}", newMovie.getTitle())); //FIXME
+//            return false;
+//        }
+//        if (movieRepo.exists(newMovie.getMovieId())) {
+////            log.error(MessageFormat.format("Could not add movie. Duplicate Id: {0}", newMovie.getMovieId())); //FIXME
+//            return false;
+//        }
+//        return movieRepo.createMovie(newMovie) == 1;
+//    }
 
     @Override
     public boolean changeMovieEarnings(int id, double newEarnings) {
@@ -66,5 +73,14 @@ public class MovieServiceImpl implements MovieService {
             return false;
         }
         return movieRepo.changeMovieEarnings(id, newEarnings) == 1;
+    }
+
+    @Override
+    public boolean changeDirector(int movieId, int newDirectorId) {
+        if (! movieRepo.exists(movieId)) {
+//            log.error(MessageFormat.format("Cannot change movie director. Movie Id {0} does not exist", id)); //FIXME
+            return false;
+        }
+        return movieRepo.changeMovieEarnings(movieId, newDirectorId) == 1;
     }
 }
