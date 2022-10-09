@@ -67,38 +67,37 @@ public class MainJavaBeans {
         movieService.findAMovie(deleteMovieID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteMovieID));
 
         // COMPLETED - Delete director given their ID
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a movie given its ID" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Delete a director given its ID" + ANSI_TEXT_RESET);
         int deleteDirectorID = 3;
-        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteDirectorID));
+        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + deleteDirectorID));
         System.out.println("Deleting movie...");
         directorService.deleteDirector(deleteDirectorID);
-        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + deleteDirectorID));
-
+        directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + deleteDirectorID));
 
         // COMPLETED - find a movie by its ID showing all information and its director
         // FIXME - Find out how to use the Director Object instead of directorId
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "Find a movie by its ID showing all information and its director" + ANSI_TEXT_RESET);
         int movieId = 3; //change to 123 to test invalid id
-        System.out.println("Find Movie Id: " + movieId);
+        System.out.println("Find Movie By Id: " + movieId);
         movieService.findAMovie(movieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + movieId));
 
         // TODO - Find all movies by a director given the director's ID
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_RED + "Find all movies by a director given the director's ID" + ANSI_TEXT_RESET);
         int directorId = 1;
-        System.out.println("Find Movies With Director Id: " + directorId);
+        System.out.println("Find Movies By Director Id: " + directorId);
         movieService.findAll().forEach(System.out::println);
 
         // COMPLETED - Change a director's active status given their ID
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN+ "Change a director's active status given their ID" + ANSI_TEXT_RESET);
         int changeActiveid = 1;
-        directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + changeActiveid));
+        directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + changeActiveid));
         System.out.println("Changing active status...");
         directorService.changeDirectorActive(changeActiveid, false);
-        directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + changeActiveid));
+        directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: " + changeActiveid));
 
 
         // COMPLETED - Modify a movie's earnings given its ID
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Find all movies by a director given the director's ID" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Modify a movie's earnings given its ID" + ANSI_TEXT_RESET);
         int changeEarningsid = 3;
         movieService.findAMovie(changeEarningsid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: " + changeEarningsid));
         System.out.println("Changing earnings...");
