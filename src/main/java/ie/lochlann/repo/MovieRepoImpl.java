@@ -1,7 +1,9 @@
 package ie.lochlann.repo;
 
 import ie.lochlann.entities.Movie;
+import ie.lochlann.entities.Result;
 import ie.lochlann.repo.rowmappers.MovieRowMapper;
+import ie.lochlann.repo.rowmappers.ResultRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -24,10 +26,16 @@ public class MovieRepoImpl implements MovieRepo {
         return number != null? number: -1;
     }
 
+//    @Override
+//    public List<Movie> findAll() {
+//        String sql = "select * from movie";
+//        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new MovieRowMapper());
+//    }
+
     @Override
-    public List<Movie> findAll() {
-        String sql = "select * from movie";
-        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new MovieRowMapper());
+    public List<Result> findAll() {
+        String sql = "select d.fname, d.lname, m.title from movie m inner join director d on d.directorId = m.directorId";
+        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new ResultRowMapper());
     }
 
     @Override
@@ -42,6 +50,22 @@ public class MovieRepoImpl implements MovieRepo {
         String sql = "select * from movie where movieId = :movieId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", id);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new MovieRowMapper());
+    }
+
+//    @Override
+//    // TODO
+//    public List<Result> findHighestEarnings() {
+//        String sql = "select m.movieId, m.earnings, d.directorId from ";
+//        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new ResultRowMapper());
+//    }
+
+    @Override
+    public Result findMovieTitleAndDirectorName(int movieId) {
+//        String sql = "select m.movieId, m.title, m.releaseDate, m.earnings, m.directorId, d.directorid, d.fname, d.lname, d.stillActive from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
+        String sql = "select m.movieId, d.fname, d.lname from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
+//        String sql = "select * from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", movieId);
+        return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new ResultRowMapper());
     }
 
     public boolean exists(int id) {

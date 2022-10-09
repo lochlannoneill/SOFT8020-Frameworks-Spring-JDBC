@@ -1,15 +1,17 @@
 package ie.lochlann.repo;
 
 import ie.lochlann.entities.Movie;
+import ie.lochlann.entities.Result;
 
 import java.util.List;
 
 public interface MovieRepo {
     int count();
-    List<Movie> findAll();
-//    List<Movie> getAllByDirectorId(int id);
+    List<Result> findAll();
+//    List<Movie> findAll();
     Movie findById(int id);
     List<Movie> findMoviesByDirector(int id);
+    Result findMovieTitleAndDirectorName(int movieId);
     boolean exists(int id);
     boolean existsByName(String title);
     int deleteMovie(int id);

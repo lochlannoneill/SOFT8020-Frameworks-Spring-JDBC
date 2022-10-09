@@ -1,6 +1,7 @@
 package ie.lochlann.service;
 
 import ie.lochlann.entities.Movie;
+import ie.lochlann.entities.Result;
 import ie.lochlann.repo.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,12 @@ public class MovieServiceImpl implements MovieService {
         return movieRepo.count();
     }
 
+//    @Override
+//    public List<Movie> findAll() {
+//        return movieRepo.findAll();
+//    }
     @Override
-    public List<Movie> findAll() {
+    public List<Result> findAll() {
         return movieRepo.findAll();
     }
 
@@ -33,8 +38,15 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    // TODO
     public List<Movie> findMoviesByDirector(int id) {
         return movieRepo.findMoviesByDirector(id);
+    }
+
+    @Override
+    // TODO
+    public Result findMovieTitleAndDirectorName(int movieId) {
+        return movieRepo.findMovieTitleAndDirectorName(movieId);
     }
 
     @Override

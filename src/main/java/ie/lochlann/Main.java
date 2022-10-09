@@ -71,7 +71,6 @@ public class Main {
         directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + deleteDirectorID + "'"));
 
         // COMPLETED - find a movie by its ID showing all information and its director
-        // FIXME - Find out how to use the Director Object instead of directorId
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "Find a movie by its ID showing all information and its director" + ANSI_TEXT_RESET);
         int movieId = 3; //change to 123 to test invalid id
         System.out.println("Find Movie By Id: " + movieId);
@@ -87,7 +86,7 @@ public class Main {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN+ "Change a director's active status given their ID" + ANSI_TEXT_RESET);
         int changeActiveid = 1;
         directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + changeActiveid + "'"));
-        System.out.println("Changing director Id '" + changeActiveid + "' activity status to 'false'");
+        System.out.println("Changing director id '" + changeActiveid + "' activity status to 'false'");
         directorService.changeDirectorActive(changeActiveid, false);
         directorService.findADirector(changeActiveid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + changeActiveid + "'"));
 
