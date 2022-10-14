@@ -10,5 +10,5 @@ create table movie (
     title varchar(64),
     releaseDate varchar(32),
     earnings double,
-    directorId int--make this a foreign key
+    directorId int --foreign key
 );

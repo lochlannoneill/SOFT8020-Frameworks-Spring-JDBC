@@ -12,4 +12,6 @@ public interface DirectorService {
     boolean deleteDirector(int id);
     boolean addDirector(Director director); // TODO
     boolean changeDirectorActive(int id, boolean newActive);
+    boolean getAverageEarningsByDirector (int id);
+    int getInactiveCount();
 }

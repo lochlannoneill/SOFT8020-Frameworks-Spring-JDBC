@@ -54,7 +54,7 @@ public class Main {
         directorService.findADirector(newDirectorId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + newDirectorId + "'"));
 
         // COMPLETED - Add a movie assigning it to a specific director
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "Add a movie assigning it to a specific director" + ANSI_TEXT_RESET);
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Add a movie assigning it to a specific director" + ANSI_TEXT_RESET);
         int newMovieId = 99;
         movieService.findAMovie(newMovieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + newMovieId + "'"));
         System.out.println("Creating new movie with id '" + newMovieId + "', assigned to director with id '" + newDirectorId + "'");
@@ -106,8 +106,16 @@ public class Main {
         movieService.changeMovieEarnings(changeEarningsid, 999);
         movieService.findAMovie(changeEarningsid).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + changeEarningsid + "'"));
 
-        // TODO - Determine the average income for all movies by a particular director
-        // TODO - Determine the number of inactive directors
+//        // TODO - Determine the average income for all movies by a particular director
+//        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_RED + "Determine the average income for all movies by a particular director" + ANSI_TEXT_RESET);
+//        int determineAverageId = 1;
+//        directorService.getAverageEarningsByDirector(determineAverageId);
+
+        // COMPLETED - Determine the number of inactive directors
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Determine the number of inactive directors" + ANSI_TEXT_RESET);
+        System.out.println("Inactive Director Count: " + directorService.getInactiveCount());
+        directorService.findAll().forEach(System.out::println);
+
         // TODO - Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)
 
         // TODO - UNIT TEST -> Messages in different languages
@@ -117,6 +125,6 @@ public class Main {
         // TODO - UNIT TEST -> Highest earnings along with the director
         // TODO - UNIT TEST -> Service layer exceptions(add movie, find all movies given directorId, update movie takings given directorId
 
-        context.close(); //keep commented to see the webserver
+        //context.close(); //keep commented to see the webserverA
     }
 }

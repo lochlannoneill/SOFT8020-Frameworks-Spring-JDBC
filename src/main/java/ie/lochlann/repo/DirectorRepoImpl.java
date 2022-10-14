@@ -60,7 +60,7 @@ public class DirectorRepoImpl implements DirectorRepo {
 
     @Override
     public int createDirector(Director newDirector) {
-        String sql = "insert into director values (:directorId, :fname, :lname, :stillActive)";
+        String sql = "INSERT INTO director VALUES (:directorId, :fname, :lname, :stillActive)";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
                 .addValue("directorId", newDirector.getDirectorId())
                 .addValue("fname", newDirector.getFname())
@@ -71,12 +71,33 @@ public class DirectorRepoImpl implements DirectorRepo {
 
     @Override
     public int changeDirectorActive(int id, boolean newActive) {
-        String sql = "update director set stillActive = :newActive where directorId = :directorId";
+        String sql = "UPDATE director SET stillActive = :newActive WHERE directorId = :directorId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
                 .addValue("directorId", id)
                 .addValue("newActive", newActive);
         return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
     }
 
+    @Override
+    //TODO
+    public double getAverageEarningsByDirector(int id) {
+//        String sql = "select * from director where directorId = :directorId";
+//        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
+//        return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new DirectorRowMapper());
+
+//        String sql = "SELECT AVG(earnings) FROM movie WHERE directorId =:directorId";
+        String sql = "SELECT AVG(earnings) FROM movie WHERE directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
+        Double average = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Double.class);
+        return average != null? average: -1.0; // if number is not null then return number, otherwise return -1
+    }
+
+    @Override
+    public int getInactiveCount() {
+//        String sql = "SELECT count(CASE WHEN stillActive THEN 1 END) FROM director";
+        String sql = "SELECT COALESCE(sum(CASE WHEN stillActive THEN 0 ELSE 1 END),0) FROM director";
+        Integer number = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Integer.class);
+        return number != null? number: -1;
+    }
 
 }

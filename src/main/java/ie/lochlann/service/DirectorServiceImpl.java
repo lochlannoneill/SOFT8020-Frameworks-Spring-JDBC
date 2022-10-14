@@ -66,5 +66,19 @@ public class DirectorServiceImpl implements DirectorService {
         return directorRepo.changeDirectorActive(id, newActive) == 1;
     }
 
+    @Override
+    public boolean getAverageEarningsByDirector(int id) {
+        if(! directorRepo.exists(id)) {
+//            log.error(MessageFormat.format("Cannot determine average earnings for Director. Director {0} does not exist", id));//FIXME
+            return false;
+        }
+        return directorRepo.getAverageEarningsByDirector((id)) == 1;
+    }
+
+    @Override
+    public int getInactiveCount() {
+        return directorRepo.getInactiveCount();
+    }
+
 
 }

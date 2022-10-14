@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb6210e-9eaf-40b3-9c3d-c46b360d4f83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestDirectorRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TestMovieRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDirector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDirector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestDirector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestDirector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestLanguage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestLanguage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +70,7 @@
       <recent name="C:\Users\lochl\OneDrive\Documents\GitHub\assignment_frameworks\src\main\java\ie\lochlann" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainJavaBeans">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ie.lochlann.Main" />
       <module name="assignment_frameworks" />
@@ -76,43 +84,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ie.lochlann.MainXML" />
-      <module name="assignment_frameworks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ie.lochlann.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestDirector.testDirectorBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDirectorRepo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment_frameworks" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestDirector" />
-      <option name="METHOD_NAME" value="testDirectorBean" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="assignment_frameworks" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestLanguage" />
+      <option name="MAIN_CLASS_NAME" value="TestDirectorRepo" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLanguage.testFrenchSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDirectorRepo.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment_frameworks" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestLanguage" />
-      <option name="METHOD_NAME" value="testFrenchSuccess" />
+      <option name="MAIN_CLASS_NAME" value="TestDirectorRepo" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDirectorRepo.changeStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_frameworks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDirectorRepo" />
+      <option name="METHOD_NAME" value="changeStatus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDirectorRepo.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_frameworks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDirectorRepo" />
+      <option name="METHOD_NAME" value="delete" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainJavaBeans" />
-        <item itemvalue="JUnit.TestLanguage.testFrenchSuccess" />
-        <item itemvalue="JUnit.TestLanguage" />
-        <item itemvalue="JUnit.TestDirector.testDirectorBean" />
-        <item itemvalue="Application.MainXML" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestDirectorRepo.changeStatus" />
+        <item itemvalue="JUnit.TestDirectorRepo.delete" />
+        <item itemvalue="JUnit.TestDirectorRepo.add" />
+        <item itemvalue="JUnit.TestDirectorRepo" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +144,8 @@
       <workItem from="1665071307986" duration="5219000" />
       <workItem from="1665078219596" duration="9740000" />
       <workItem from="1665143812706" duration="804000" />
-      <workItem from="1665246016630" duration="43039000" />
+      <workItem from="1665246016630" duration="46339000" />
+      <workItem from="1665667202252" duration="11998000" />
     </task>
     <servers />
   </component>
@@ -156,5 +162,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ie/lochlann/Main.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
