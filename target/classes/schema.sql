@@ -10,5 +10,6 @@ create table movie (
     title varchar(64),
     releaseDate varchar(32),
     earnings double,
-    directorId int --foreign key
+    directorId int,
+    foreign key (directorId) references director (directorId) on delete cascade
 );

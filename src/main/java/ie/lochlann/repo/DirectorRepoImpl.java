@@ -88,7 +88,7 @@ public class DirectorRepoImpl implements DirectorRepo {
 //        String sql = "SELECT AVG(earnings) FROM movie WHERE directorId =:directorId";
         String sql = "SELECT AVG(earnings) FROM movie WHERE directorId = :directorId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
-        Double average = namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, Double.class);
+        Double average = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Double.class);
         return average != null? average: -1.0; // if number is not null then return number, otherwise return -1
     }
 
