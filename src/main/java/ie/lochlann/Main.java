@@ -122,12 +122,14 @@ public class Main {
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "TODO - Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)" + ANSI_TEXT_RESET);
 
         // TODO - UNIT TEST -> Messages in different languages
-        // COMPLETED - UNIT TEST -> Delete a director
-        // COMPLETED - UNIT TEST -> Add a director
-        // TODO - UNIT TEST -> Change the status of the director
-        // TODO - UNIT TEST -> Number of inactive directors
-        // TODO - UNIT TEST -> Highest earnings along with the director
-        // TODO - UNIT TEST -> Service layer exceptions(add movie, find all movies given directorId, update movie takings given directorId
+        // COMPLETED - UNIT TEST -> DirectorRepo - Delete a director
+        // COMPLETED - UNIT TEST -> DirectorRepo - Add a director
+        // COMPLETED - UNIT TEST -> DirectorRepo - Change the status of the director
+        // COMPLETED - UNIT TEST -> DirectorRepo - Number of inactive directors
+        // TODO - UNIT TEST -> DirectorRepo - Highest earnings along with the director
+        // COMPLETED - UNIT TEST -> MovieService - Add movie
+        // TODO - UNIT TEST -> MovieService - Find all movies given directorId
+        // TODO - UNIT TEST -> MovieService - Update movietakings given directorId
 
         //context.close(); //keep commented to see the webserverA
     }

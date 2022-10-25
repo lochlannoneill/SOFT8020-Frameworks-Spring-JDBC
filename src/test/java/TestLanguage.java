@@ -1,6 +1,8 @@
 
 import ie.lochlann.Config;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -13,7 +15,8 @@ import java.util.Locale;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class) //allows junit(ExtendWith) to use junit(SpringExtension)
-@ContextConfiguration(locations = {"classpath:/beans.xml"})
+@ContextConfiguration(classes = Config.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestLanguage {
     @Autowired
 //    ApplicationContext context;
