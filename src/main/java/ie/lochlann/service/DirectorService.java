@@ -10,7 +10,7 @@ public interface DirectorService {
     List<Director> findAll();
     Optional<Director> findADirector(int id);
     boolean deleteDirector(int id);
-    boolean addDirector(Director director); // TODO
+    boolean addDirector(Director director);
     boolean changeDirectorActive(int id, boolean newActive);
     double getAverageEarningsByDirector (int id);
     int getInactiveCount();

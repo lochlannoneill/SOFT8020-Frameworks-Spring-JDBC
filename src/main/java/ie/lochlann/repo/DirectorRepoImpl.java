@@ -1,8 +1,8 @@
 package ie.lochlann.repo;
 
 import ie.lochlann.entities.Director;
+import ie.lochlann.entities.rowmappers.DirectorRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -79,14 +79,8 @@ public class DirectorRepoImpl implements DirectorRepo {
     }
 
     @Override
-    //TODO
     public double getAverageEarningsByDirector(int id) {
-//        String sql = "select * from director where directorId = :directorId";
-//        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
-//        return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new DirectorRowMapper());
-
-//        String sql = "SELECT AVG(earnings) FROM movie WHERE directorId =:directorId";
-        String sql = "SELECT AVG(earnings) FROM movie WHERE directorId = :directorId";
+       String sql = "SELECT AVG(earnings) FROM movie WHERE directorId = :directorId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", id);
         Double average = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Double.class);
         return average != null? average: -1.0; // if number is not null then return number, otherwise return -1

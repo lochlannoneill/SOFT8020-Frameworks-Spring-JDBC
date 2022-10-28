@@ -1,5 +1,6 @@
 package ie.lochlann.service;
 
+import ie.lochlann.entities.HighestEarnings;
 import ie.lochlann.entities.Movie;
 import ie.lochlann.entities.Result;
 import ie.lochlann.repo.MovieRepo;
@@ -38,15 +39,23 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    // TODO
     public List<Movie> findMoviesByDirector(int id) {
         return movieRepo.findMoviesByDirector(id);
     }
 
     @Override
-    // TODO
+    public HighestEarnings findHighestEarningsAndDirectorName() {
+        return movieRepo.findHighestEarningsAndDirectorName();
+    }
+
+    @Override
     public Result findMovieTitleAndDirectorName(int movieId) {
         return movieRepo.findMovieTitleAndDirectorName(movieId);
+    }
+
+    @Override
+    public double getAverageEarningsByDirectorId(int directorId) {
+        return movieRepo.getAverageEarningsByDirectorId(directorId);
     }
 
     @Override
@@ -60,10 +69,6 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public boolean addMovie(Movie movie) {
-        if (movieRepo.existsByName(movie.getTitle()) ) { // FIXME - maybe get rid of this
-//            log.error(MessageFormat.format("Could not add director. Duplicate Name: {0}", newDirector.getTitle())); //FIXME
-            return false;
-        }
         if (movieRepo.exists(movie.getMovieId()) ) {
 //            log.error(MessageFormat.format("Could not add director. Duplicate Id: {0}", newDirector.getDirectorId())); //FIXME
             return false;

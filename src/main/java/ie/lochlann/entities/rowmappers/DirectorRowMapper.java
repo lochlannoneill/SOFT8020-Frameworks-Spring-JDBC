@@ -1,4 +1,4 @@
-package ie.lochlann.repo.rowmappers;
+package ie.lochlann.entities.rowmappers;
 
 import ie.lochlann.entities.Director;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,7 +14,7 @@ public class DirectorRowMapper implements RowMapper<Director> {
         director.setFname(rs.getString(2));
         director.setLname(rs.getString(3));
         director.setStillActive(rs.getBoolean(4));
-        director.setDirectorId(rs.getInt(5));
+        //director.setDirectorId(rs.getInt(5));
         return director;
     }
 }

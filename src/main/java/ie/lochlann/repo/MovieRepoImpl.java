@@ -1,9 +1,11 @@
 package ie.lochlann.repo;
 
+import ie.lochlann.entities.HighestEarnings;
 import ie.lochlann.entities.Movie;
 import ie.lochlann.entities.Result;
-import ie.lochlann.repo.rowmappers.MovieRowMapper;
-import ie.lochlann.repo.rowmappers.ResultRowMapper;
+import ie.lochlann.entities.rowmappers.HighestEarningsRowMapper;
+import ie.lochlann.entities.rowmappers.MovieRowMapper;
+import ie.lochlann.entities.rowmappers.ResultRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -16,7 +18,6 @@ import java.util.List;
 public class MovieRepoImpl implements MovieRepo {
 
     @Autowired
-//    private JdbcTemplate jdbcTemplate;
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
@@ -31,10 +32,9 @@ public class MovieRepoImpl implements MovieRepo {
 //        String sql = "select * from movie";
 //        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new MovieRowMapper());
 //    }
-
     @Override
     public List<Result> findAll() {
-        String sql = "select concat(d.fname, ' ' , d.lname) as name, m.title from movie m inner join director d on d.directorId = m.directorId";
+        String sql = "select concat(d.fname, ' ', d.lname) as name, m.title from movie m inner join director d on d.directorId = m.directorId";
         return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new ResultRowMapper());
     }
 
@@ -52,18 +52,15 @@ public class MovieRepoImpl implements MovieRepo {
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new MovieRowMapper());
     }
 
-//    @Override
-//    // TODO
-//    public List<Result> findHighestEarnings() {
-//        String sql = "select m.movieId, m.earnings, d.directorId from ";
-//        return namedParameterJdbcTemplate.getJdbcTemplate().query(sql, new ResultRowMapper());
-//    }
+    @Override
+    public HighestEarnings findHighestEarningsAndDirectorName() {
+        String sql = "select m.title, m.earnings, concat(d.fname, ' ', d.lname) as dname from movie m inner join director d on m.directorId = d.directorId where m.earnings = (select max(earnings) from movie)";
+        return namedParameterJdbcTemplate.getJdbcTemplate().queryForObject(sql, new HighestEarningsRowMapper());
+    }
 
     @Override
     public Result findMovieTitleAndDirectorName(int movieId) {
-//        String sql = "select m.movieId, m.title, m.releaseDate, m.earnings, m.directorId, d.directorid, d.fname, d.lname, d.stillActive from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
-        String sql = "select m.movieId, d.fname, d.lname from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
-//        String sql = "select * from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
+        String sql = "select m.title, d.fname, d.lname from movie m inner join director d on d.directorId = m.directorId where m.movieId = :movieId";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("movieId", movieId);
         return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, new ResultRowMapper());
     }
@@ -76,7 +73,7 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     public boolean existsByName(String title) {
-        String sql = "select count(*) from movie where title = :title"; // TODO sql name like *x*
+        String sql = "select count(*) from movie where title = :title";
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("title", title);
         Integer number = namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Integer.class);
         return number != null && number == 1;
@@ -99,6 +96,13 @@ public class MovieRepoImpl implements MovieRepo {
                 .addValue("earnings", movie.getEarnings())
                 .addValue("directorId", movie.getDirectorId());
         return namedParameterJdbcTemplate.update(sql, sqlParameterSource);
+    }
+
+    @Override
+    public double getAverageEarningsByDirectorId(int directorId) {
+        String sql = "select AVG(earnings) from movie where directorId = :directorId";
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("directorId", directorId);
+        return namedParameterJdbcTemplate.queryForObject(sql, sqlParameterSource, Double.class);
     }
 
     @Override

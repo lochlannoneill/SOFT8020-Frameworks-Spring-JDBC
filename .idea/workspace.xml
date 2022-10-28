@@ -5,16 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7cb6210e-9eaf-40b3-9c3d-c46b360d4f83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestMovieService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/HighestEarnings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/rowmappers/HighestEarningsRowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/DirectorRowMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/MovieRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/rowmappers/DirectorRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/rowmappers/DirectorRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/rowmappers/MovieRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/rowmappers/MovieRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/repo/rowmappers/ResultRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/entities/rowmappers/ResultRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/DirectorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ie/lochlann/service/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDirector.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestDirectorRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestDirectorRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestMovieRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestMovie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestMovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/Config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/entities/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/entities/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRepoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/DirectorRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/MovieRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/MovieRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/MovieRepoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/MovieRepoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/rowmappers/DirectorRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/rowmappers/MovieRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/repo/rowmappers/ResultRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/service/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ie/lochlann/service/MovieServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ie/lochlann/service/MovieServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestDirector.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestDirectorRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestDirectorRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestLanguage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestLanguage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMovieRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMovie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestMovieService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +58,7 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -69,64 +102,64 @@
       <recent name="ie.lochlann" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestMovieService.findMoviesByDirector">
-    <configuration name="TestDirectorRepo.getAverageEarningsByDirector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ie.lochlann.Main" />
+      <module name="assignment_frameworks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ie.lochlann.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDirectorRepo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment_frameworks" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestDirectorRepo" />
-      <option name="METHOD_NAME" value="getAverageEarningsByDirector" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLanguage.testFrenchSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment_frameworks" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestLanguage" />
-      <option name="METHOD_NAME" value="testFrenchSuccess" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLanguage.testDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_frameworks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestLanguage" />
+      <option name="METHOD_NAME" value="testDefault" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMovieService.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMovieService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="assignment_frameworks" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestMovieService" />
-      <option name="METHOD_NAME" value="add" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMovieService.delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="assignment_frameworks" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMovieService" />
-      <option name="METHOD_NAME" value="delete" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMovieService.findMoviesByDirector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="assignment_frameworks" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMovieService" />
-      <option name="METHOD_NAME" value="findMoviesByDirector" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestMovieService.findMoviesByDirector" />
-        <item itemvalue="JUnit.TestMovieService.add" />
-        <item itemvalue="JUnit.TestMovieService.delete" />
-        <item itemvalue="JUnit.TestLanguage.testFrenchSuccess" />
-        <item itemvalue="JUnit.TestDirectorRepo.getAverageEarningsByDirector" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestMovieService" />
+        <item itemvalue="JUnit.TestLanguage" />
+        <item itemvalue="JUnit.TestDirectorRepo" />
+        <item itemvalue="JUnit.TestLanguage.testDefault" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +179,8 @@
       <workItem from="1666279558416" duration="6469000" />
       <workItem from="1666299709398" duration="830000" />
       <workItem from="1666699168022" duration="3176000" />
+      <workItem from="1666706921014" duration="1622000" />
+      <workItem from="1666731502135" duration="19161000" />
     </task>
     <servers />
   </component>

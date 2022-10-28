@@ -1,4 +1,4 @@
-package ie.lochlann.repo.rowmappers;
+package ie.lochlann.entities.rowmappers;
 
 import ie.lochlann.entities.Movie;
 

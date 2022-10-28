@@ -1,16 +1,15 @@
 package ie.lochlann;
 
 import ie.lochlann.entities.Director;
+import ie.lochlann.entities.HighestEarnings;
 import ie.lochlann.entities.Movie;
-import ie.lochlann.repo.DirectorRepo;
-import ie.lochlann.repo.DirectorRepoImpl;
-import ie.lochlann.repo.MovieRepo;
-import ie.lochlann.repo.MovieRepoImpl;
 import ie.lochlann.service.DirectorService;
 import ie.lochlann.service.DirectorServiceImpl;
 import ie.lochlann.service.MovieService;
 import ie.lochlann.service.MovieServiceImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,24 +25,20 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         DirectorService directorService = context.getBean(DirectorServiceImpl.class);
         MovieService movieService = context.getBean(MovieServiceImpl.class);
-//        System.out.println(context.getMessage("greeting", null, Locale.getDefault()));
-//        System.out.println(context.getMessage("greeting", null, Locale.FRENCH));
-//        System.out.println(context.getMessage("greeting", null, Locale.ITALIAN));
-//        System.out.println("List beans created in java config file: ");s
-//        context.getBeansOfType(Director.class).values().forEach(System.out::println);
-//        context.getBeansOfType(Movie.class).values().forEach(System.out::println);
+
+        System.out.println(context.getMessage("greeting", null, Locale.getDefault()));
+        System.out.println(context.getMessage("greeting", null, Locale.FRENCH));
+        System.out.println(context.getMessage("greeting", null, Locale.ITALIAN));
 
         // COMPLETED - List all directors
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - List all directors" + ANSI_TEXT_RESET);
-        DirectorRepo directorRepo = context.getBean(DirectorRepoImpl.class);
-        System.out.println("H2 Database Director Count: " + directorRepo.count());
-        directorRepo.getAll().forEach(System.out::println);
+        System.out.println("H2 Database Director Count: " + directorService.count());
+        directorService.findAll().forEach(System.out::println);
 
         // COMPLETED - List all movies(director not needed)
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - List all movies(director not needed)" + ANSI_TEXT_RESET);
-        MovieRepo movieRepo = context.getBean(MovieRepoImpl.class);
-        System.out.println("H2 Database Movie Count: " + movieRepo.count());
-        movieRepo.findAll().forEach(System.out::println);
+        System.out.println("H2 Database Movie Count: " + movieService.count());
+        movieService.findAll().forEach(System.out::println);
 
         // COMPLETED - Add a director
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Add a director" + ANSI_TEXT_RESET);
@@ -78,8 +73,8 @@ public class Main {
         directorService.findADirector(deleteDirectorID).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Director Id: '" + deleteDirectorID + "'"));
 
         // COMPLETED - find a movie by its ID showing all information and its director
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "COMPLETED - Find a movie by its ID showing all information and its director" + ANSI_TEXT_RESET);
-        int movieId = 3; //change to 123 to test invalid id
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Find a movie by its ID showing all information and its director" + ANSI_TEXT_RESET);
+        int movieId = 3;
         System.out.println("Find Movie By Id: " + movieId);
         movieService.findAMovie(movieId).ifPresentOrElse(System.out::println,() -> System.out.println("Error - Invalid Movie Id: '" + movieId + "'"));
 
@@ -108,28 +103,54 @@ public class Main {
 
         // COMPLETED - Determine the average income for all movies by a particular director
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Determine the average income for all movies by a particular director" + ANSI_TEXT_RESET);
-        int determineAverageId = 1;
-        System.out.println("Average movie earnings of director id: " + directorId);
+        //int determineAverageId = 1;
+        System.out.println("Average movie earnings of director id: " + 1);
         movieService.findMoviesByDirector(directorId).forEach(System.out::println);
-        System.out.println("Average earnings: " + directorService.getAverageEarningsByDirector(determineAverageId));
+        System.out.println("Average earnings: " + directorService.getAverageEarningsByDirector(1));
 
         // COMPLETED - Determine the number of inactive directors
         System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - Determine the number of inactive directors" + ANSI_TEXT_RESET);
         System.out.println("Inactive Director Count: " + directorService.getInactiveCount());
         directorService.findAll().forEach(System.out::println);
 
-        // TODO - Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)
-        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_YELLOW + "TODO - Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)" + ANSI_TEXT_RESET);
+        // COMPLETED - Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "Determine the name of the movie with the highest earnings along with the name of its director (you might use a record class here)" + ANSI_TEXT_RESET);
+        HighestEarnings he = movieService.findHighestEarningsAndDirectorName();
+        String highest_title = he.title();
+        Double highest_earnings = he.earnings();
+        String highest_dname = he.directorName();
+        System.out.println("Movie Title: " + highest_title + "\nMovie Earnings: " + highest_earnings + "\nDirector Name: " + highest_dname);
+//        System.out.println(movieService.findHighestEarningsByDirectorId(directorId));
 
-        // TODO - UNIT TEST -> Messages in different languages
+        // COMPLETED - UNIT TEST -> Messages in different languages
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> Messages in different languages" + ANSI_TEXT_RESET);
+
         // COMPLETED - UNIT TEST -> DirectorRepo - Delete a director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - Delete a director" + ANSI_TEXT_RESET);
+
         // COMPLETED - UNIT TEST -> DirectorRepo - Add a director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - Add a director" + ANSI_TEXT_RESET);
+
         // COMPLETED - UNIT TEST -> DirectorRepo - Change the status of the director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - Change the status of the director" + ANSI_TEXT_RESET);
+
+        // COMPLETED - UNIT TEST -> DirectorRepo - The average income
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - The average income" + ANSI_TEXT_RESET);
+
         // COMPLETED - UNIT TEST -> DirectorRepo - Number of inactive directors
-        // TODO - UNIT TEST -> DirectorRepo - Highest earnings along with the director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - Number of inactive directors" + ANSI_TEXT_RESET);
+
+        // COMPLETED - UNIT TEST -> DirectorRepo - Highest earnings along with the director
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> DirectorRepo - Highest earnings along with the director" + ANSI_TEXT_RESET);
+
         // COMPLETED - UNIT TEST -> MovieService - Add movie
-        // TODO - UNIT TEST -> MovieService - Find all movies given directorId
-        // TODO - UNIT TEST -> MovieService - Update movietakings given directorId
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> MovieService - Add movie" + ANSI_TEXT_RESET);
+
+        // COMPLETED - UNIT TEST -> MovieService - Find all movies given directorId
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> MovieService - Find all movies given directorId" + ANSI_TEXT_RESET);
+
+        // COMPLETED - UNIT TEST -> MovieService - Update movie takings given movieId
+        System.out.println("\n" + ANSI_BACKGROUND_BLACK + ANSI_TEXT_GREEN + "COMPLETED - UNIT TEST -> MovieService - Update movie takings given movieId" + ANSI_TEXT_RESET);
 
         //context.close(); //keep commented to see the webserverA
     }

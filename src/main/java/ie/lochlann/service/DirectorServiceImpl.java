@@ -46,10 +46,6 @@ public class DirectorServiceImpl implements DirectorService {
 
     @Override
     public boolean addDirector(Director newDirector) {
-        if (directorRepo.existsByName(newDirector.getFname()) ) { // FIXME - maybe get rid of this
-//            log.error(MessageFormat.format("Could not add director. Duplicate Name: {0}", newDirector.getTitle())); //FIXME
-            return false;
-        }
         if (directorRepo.exists(newDirector.getDirectorId())) {
 //            log.error(MessageFormat.format("Could not add director. Duplicate Id: {0}", newDirector.getDirectorId())); //FIXME
             return false;
@@ -58,7 +54,7 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public boolean changeDirectorActive(int id, boolean newActive) { // TODO - maybe add exception for already true/false
+    public boolean changeDirectorActive(int id, boolean newActive) {
         if(! directorRepo.exists(id)) {
 //            log.error(MessageFormat.format("Cannot change director status. Director Id {0} does not exist", id)); //FIXME
             return false;
